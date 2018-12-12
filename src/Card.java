@@ -14,5 +14,32 @@ public class Card {
 
 
     }
-
+    public String getRank()
+    {
+        return rank;
+    }
+    public String getSuit()
+    {
+        return suit;
+    }
+    public int getPointValue()
+    {
+        return pointValue;
+    }
+    public boolean equals(Card otherCard)
+    {
+           if(this.pointValue == otherCard.pointValue)
+           {
+               return true;
+           }
+           else
+           {
+               return false;
+           }
+    }
+    public String toString()
+    {
+        return suit + " of " + rank;
+    }
 }
+
