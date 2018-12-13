@@ -1,6 +1,4 @@
-import sun.util.resources.cldr.ar.CalendarData_ar_DZ;
 
-import javax.smartcardio.Card;
 import java.util.ArrayList;
 
 public class Deck {
@@ -11,9 +9,15 @@ public class Deck {
     {
         unDealt = new ArrayList<Card>();
         Dealt = new ArrayList<Card>();
+        for(int i=0;i< Deck.length;i++)
+        {
+            for(int j=0;j< Suits.length;j++)
+            {
 
+                unDealt.add(new Card(Deck[i],Suits[j],pointValue[i]));
 
-
+            }
+        }
     }
     public ArrayList<Card> getUnDealt()
     {
@@ -52,10 +56,16 @@ public class Deck {
             unDealt.add(Dealt.get(0));
             Dealt.remove(0);
         }
-
-
+        for(int i=unDealt.size()-1;i>0;i--)
+        {
+            int pos = (int) (Math.random() * i);
+            Card temp = unDealt.get(i);
+            unDealt.set(i,unDealt.get(pos));
+            unDealt.set(pos,temp);
+        }
     }
-
-
-
 }
+
+
+
+
